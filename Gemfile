@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'devise'
 
+gem "letter_opener", :group => :development
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
