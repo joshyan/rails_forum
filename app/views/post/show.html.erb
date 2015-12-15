@@ -1,0 +1,27 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.description %></p>
+
+<h3>Replies</h3>
+<div>
+	<% @replies.each do |r| %>
+		<p style="weight: bold"><%= r.title %></p>
+		<p><%= r.description %></p>
+		<p>By <%= r.user.username %></p>
+	<% end %>
+</div>
+
+<%= form_for :reply do |f| %>
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :title %></p>
+	  <%= f.text_field :title %>
+	</div>
+
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :description %></p>
+	  <%= f.text_area :description, size: "30x4" %>
+	</div>
+
+
+	  <p><%= f.submit "Create" %></p>
+
+<% end %>
