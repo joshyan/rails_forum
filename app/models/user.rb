@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
 
   before_create :set_default_role
 
+  has_many :topics, :dependent => :destroy
+  has_many :posts, :dependent => :destroy
+  has_many :replies, :dependent => :destroy
+
   attr_accessor :login
 
 	def self.find_first_by_auth_conditions(warden_conditions)

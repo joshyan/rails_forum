@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/index'
 
   devise_for :users, controllers: { registrations: "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -7,6 +6,18 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+
+  get 'topics' => 'topic#index'
+  get 'topic/:id' => 'topic#show'
+  get 'topics/new' => 'topic#new'
+  post 'topics/new' => 'topic#create'
+
+
+  get 'post/:id' => 'post#show'
+  get 'topic/:id/post/new' => 'post#new'
+  post 'topic/:id/post/new' => 'post#create'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

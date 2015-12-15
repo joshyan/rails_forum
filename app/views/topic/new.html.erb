@@ -1,0 +1,18 @@
+<h1>Create a New Topic</h1>
+
+<%= form_for :topic do |f| %>
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :title %></p>
+	  <%= f.text_field :title %>
+	</div>
+
+	<div style="padding-bottom: 10px;">
+	  <p><%= f.label :description %></p>
+	  <%= f.text_area :description, size: "30x4" %>
+	</div>
+
+
+
+	  <p><%= f.submit "Create" %></p>
+
+<% end %>

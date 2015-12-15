@@ -1,5 +1,17 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+
+
+
+<h1><%= link_to "All Topics", :controller => 'topic', :action => 'index' %></h1>
+<ul>
+<% @topics.each do |t| %>
+	<li><%= link_to t.title, :controller => 'topic', :action => 'show', :id => t.id %></li>
+<% end %>
+</ul>
+
+
+
 <% if user_signed_in? %>
   <li>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
