@@ -6,7 +6,7 @@ class PostController < ApplicationController
 
 		if cannot? :create, Post
 			flash[:notice] = "You don't have the permission to visit the page"
-			redirect_to :controller => 'topic', :action => 'show', :id => @topic.id
+			redirect_to :controller => 'home', :action => 'index'
 		end
 	end
 
