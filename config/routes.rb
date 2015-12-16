@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'topic/:id/post/new' => 'post#new'
   post 'topic/:id/post/new' => 'post#create'
 
-
+  delete 'post/:id' => 'post#delete'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

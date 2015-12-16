@@ -53,4 +53,15 @@ class PostController < ApplicationController
 			redirect_to :controller => 'post', :action => 'show', :id => @post.id
 		end
 	end
+
+	def delete
+		if cannot? :delete, Post
+			flash[:notice] = "You don't have the permission to visit the page"
+			redirect_to :controller => 'home', :action => 'index'
+		end
+
+		@id = params[:id]
+		Post.destroy(@id)
+		redirect_to :controller => 'topic', :action => 'show', :id => params[:tid]
+	end
 end

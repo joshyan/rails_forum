@@ -4,7 +4,11 @@
 <h1>Posts</h1>
 <ul>
 <% @posts.each do |p| %>
-	<li><%= link_to p.title, :controller => 'post', :action => 'show', :id => p.id %></li>
+	<li><%= link_to p.title, :controller => 'post', :action => 'show', :id => p.id %>
+		<% if can? :delete, Post %>
+			<%= link_to "Delete Post", { controller: 'post', action: 'delete', :id => p.id, :tid => @topic.id }, method: :delete, data: {confirm: 'Are you sure?'} %>
+		<% end %>
+	</li>
 <% end %>
 </ul>
 
