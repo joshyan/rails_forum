@@ -6,4 +6,6 @@
 <% end %>
 
 <br><br><br>
+<% if can? :create, Topic %>
 <p><%= link_to "Create a New Topic", :controller => 'topic', :action => 'new' %></p>
+<% end %>

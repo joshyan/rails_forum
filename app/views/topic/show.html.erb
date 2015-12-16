@@ -1,11 +1,13 @@
 <h1><%= @topic.title %></h1>
 <p><%= @topic.description %></p>
 
-<%= link_to "Create a Post", :controller => 'post', :action => 'new', :id => @topic.id %>
-
 <h1>Posts</h1>
 <ul>
 <% @posts.each do |p| %>
 	<li><%= link_to p.title, :controller => 'post', :action => 'show', :id => p.id %></li>
 <% end %>
 </ul>
+
+<% if can? :create, Post %>
+<%= link_to "Create a Post", :controller => 'post', :action => 'new', :id => @topic.id %>
+<% end %>

@@ -35,6 +35,8 @@ gem 'devise'
 
 gem "letter_opener", :group => :development
 
+gem 'cancancan', '~> 1.10'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
