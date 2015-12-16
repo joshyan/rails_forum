@@ -1,6 +1,7 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.description %></p>
 
+<% if @replies.size > 0 %>
 <h1>Replies</h1>
 <div>
 	<% @replies.each do |r| %>
@@ -9,8 +10,10 @@
 		<p>By <%= r.user.username %></p>
 	<% end %>
 </div>
+<% end %>
 
 <% if can? :create, Reply %>
+<h1>Leave your message here</h1>
 <%= form_for :reply do |f| %>
 	<div style="padding-bottom: 10px;">
 	  <p><%= f.label :title %></p>

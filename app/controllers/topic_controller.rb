@@ -7,6 +7,10 @@ class TopicController < ApplicationController
 
 	def new
 		# Create Topic Form
+		if cannot? :create, Topic
+			flash[:notice] = "You don't have the permission to visit the page"
+			redirect_to :controller => 'topic', :action => 'index'
+		end
 	end
 
 	def create

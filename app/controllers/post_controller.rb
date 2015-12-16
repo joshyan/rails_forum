@@ -4,6 +4,10 @@ class PostController < ApplicationController
 		# Create Post Form
 		@topic = Topic.find_by_id(params[:id])
 
+		if cannot? :create, Post
+			flash[:notice] = "You don't have the permission to visit the page"
+			redirect_to :controller => 'topic', :action => 'show', :id => @topic.id
+		end
 	end
 
 	def create
